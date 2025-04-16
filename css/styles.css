@@ -76,6 +76,13 @@ header a img {
     color: red;
 }
 
+.submenu i{
+    transition: transform 200ms linear;
+}
+.submenu:hover i{
+    transform: rotate(180deg);
+}
+
 section {
     padding: 2vh;
     display: flex;
@@ -108,6 +115,21 @@ footer p {
     font-variant: small-caps;
 }
 
+.toggle-menu{
+    display: none;
+    z-index: 999;
+    background-color: transparent;
+    width: 25px;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border: none;
+    background-image: url(../images/hamburger.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 
 @media (max-width: 767px) {
@@ -119,6 +141,34 @@ footer p {
         margin: 0 auto;
     }
 
+    .navmenu{
+        display: none;
+        z-index: 99;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 80%;
+        background-image: conic-gradient(from 90deg at 50% 125%, #20b2aa, #135da5, #0d0895, #4b0082, #4b0082, #0d0895, #135da5, #20b2aa );
+        padding-top: 20vh;
+        transform: translateX(-100%);
+        transition: transform 300ms linear;
+
+    }
+    .toggle-menu{
+        display: block;
+    }
+    .toggle-menu[data-visible="true"] {
+        background-image: url(../images/closemobile.png)  ;
+    }
+    .navmenu [data-visible="true"] {
+        transform: translateX(0%);
+    }
+    .navmenu.active {
+        display: block;
+    }
 
     .navmenu > div {
         width: 100%;
